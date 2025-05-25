@@ -24,14 +24,15 @@ export const createUser = async (user: CreateUserParams) => {
       user.name
     );
 
-    console.log({ newUser });
-
     return parseStringify(newUser);
   } catch (error: any) {
+    console.log(error);
     if (error && error?.code === 409) {
       const documents = await users.list([Query.equal("email", [user.email])]);
-
-      return documents?.users[0];
+      
+      if (documents?.users && documents.users.length > 0) {
+        return parseStringify(documents.users[0]);
+      }
     }
   }
 };
