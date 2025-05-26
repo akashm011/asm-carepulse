@@ -71,7 +71,7 @@ const Success = async ({ params: { userId }, searchParams }: SearchParamProps) =
         </Button>
 
         <p className="copyright py-12">
-            © 2025 CarePlus
+            © 2025 CarePulse
         </p>
       </div>
     </div>
